@@ -9,6 +9,7 @@ class TelegramController extends Controller
    public function test(){
        $token = "648557133:AAGyz8be4uBse2ncpRnKXjZF6cdWq0_k-08";
        $bot = new \TelegramBot\Api\Client($token);
+
 // команда для start
        $bot->command('start', function ($message) use ($bot) {
            $answer = 'Добро пожаловать!';
@@ -22,6 +23,8 @@ class TelegramController extends Controller
            $bot->sendMessage($message->getChat()->getId(), $answer);
        });
 
-       $bot->run();
+       if(!empty($bot->getRawBody())){
+           $bot->run();
+       }
    }
 }
