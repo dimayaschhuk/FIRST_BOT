@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class TelegramController extends Controller
 {
-   public function test(){
+   public function test(Request $request){
        $token = "648557133:AAGyz8be4uBse2ncpRnKXjZF6cdWq0_k-08";
        $bot = new \TelegramBot\Api\Client($token);
 
